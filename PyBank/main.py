@@ -32,7 +32,10 @@ if __name__ == "__main__":
         greatest_decrease_date = date_column[delta.idxmin()]
         
         print("Financial analysis\n----------------------------\n")
-        print(f"Total Months: {months_count}\nTotal: ${net_total_amount}\nAverage Change: ${average_change}\nGreatest Increase in Profits: {greatest_increase_date} (${greatest_increase})\nGreatest Decrease in Profits: {greatest_decrease_date} (${greatest_decrease})\n")       
+        format_string = "Total Months: {months_count}\nTotal: ${net_total_amount}\nAverage Change: ${average_change:.2f}\nGreatest Increase in Profits: {greatest_increase_date} (${greatest_increase})\nGreatest Decrease in Profits: {greatest_decrease_date} (${greatest_decrease})\n"
+        format_values = {'months_count':months_count, 'net_total_amount':net_total_amount, 'average_change':average_change, 'greatest_increase_date':greatest_increase_date, 'greatest_increase':greatest_increase, 'greatest_decrease_date':greatest_decrease_date, 'greatest_decrease':greatest_decrease}
+        formatted_output = format_string.format(**format_values)
+        print(formatted_output)
         with open('analysis/budget_data.txt', 'w') as f:
             print("Financial analysis\n----------------------------\n", file=f)
-            print(f"Total Months: {months_count}\nTotal: ${net_total_amount}\nAverage Change: ${average_change}\nGreatest Increase in Profits: {greatest_increase_date} (${greatest_increase})\nGreatest Decrease in Profits: {greatest_decrease_date} (${greatest_decrease})\n", file=f)
+            print(formatted_output, file=f)

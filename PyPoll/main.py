@@ -28,12 +28,16 @@ if __name__ == "__main__":
         
         winner = max(candidate_vote_count, key=candidate_vote_count.get)
         
-        # output 
-        print('-------------------------')
-        print(f"Total Votes: {total_votes}")
-        print('-------------------------')        
+        # output        
+        delimiter = '-------------------------'
+        formatted_list = str(f"Election Results\n")
+        formatted_list += str(f"{delimiter}\n")
+        formatted_list += str(f"Total Votes: {total_votes}\n")
+        formatted_list += str(f"{delimiter}\n")
         for name, votes in candidate_vote_count.items():
-            print(f"{name}: {round((votes/total_votes*100), 3)}% ({votes})")
-        print('-------------------------')
-        print(f"Winner: {winner}")
-        print('-------------------------')
+            formatted_list += str(f"{name}: {round((votes/total_votes*100), 3)}% ({votes})\n")
+        formatted_list += str(f"{delimiter}\n")
+        formatted_list += str(f"Winner: {winner}\n")
+        formatted_list += str(f"{delimiter}\n")
+        print(formatted_list)
+                          

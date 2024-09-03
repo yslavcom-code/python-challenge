@@ -25,7 +25,7 @@ def output_data(str):
 
     # Write to the file
     with open(file_path, 'w') as f:
-        print(str, file=f)
+        print(f"{str}", file=f)
 
 
 if __name__ == "__main__":
@@ -57,5 +57,6 @@ if __name__ == "__main__":
         formatted_list += str(f"{delimiter}\n")
         formatted_list += str(f"Winner: {winner}\n")
         formatted_list += str(f"{delimiter}\n")
-        print(formatted_list)
+        
+        output_data(formatted_list)
                           

@@ -10,6 +10,24 @@ def get_file_data():
         return pd.read_csv(f)
         
 
+def output_data(str):
+    # print to terminal
+    print(str)
+    
+    # print to file
+    directory = 'analysis'
+    file_name = 'election_data.txt'
+    file_path = os.path.join(directory, file_name)
+
+    # Ensure the directory exists
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+
+    # Write to the file
+    with open(file_path, 'w') as f:
+        print(str, file=f)
+
+
 if __name__ == "__main__":
     data = get_file_data()
     if data is not None:
